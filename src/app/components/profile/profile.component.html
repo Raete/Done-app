@@ -1,0 +1,44 @@
+<div class="container">
+    <header class="header_wrapper">
+        <div class="header">
+            <nav class="nav">
+                <a href="#" (click)="onLogoutClick()" class="btn_menu">Log out</a>
+            </nav>
+            
+            <h1 class="title">Hello</h1>
+            <h1 class="name">Kelly</h1>
+            <p class="date">Sunday, 12nd March</p>
+        </div>
+    </header>
+    <section class="stats_wrapper">
+        <div class="stats">
+            <div class="stats_box">
+                <h1 class="stats_number">52</h1>
+                <p class="stats_title">Created Lists</p>
+
+            </div>
+            <div class="stats_box">
+                <h1 class="stats_number">588</h1>
+                <p class="stats_title">Created Tasks</p>
+            </div>
+        </div>
+    </section>
+    <section class="lists_wrapper">
+        <div class="lists">
+            
+            <a routerLink="/tasks-all" class="lists_item" *ngFor="let item of lists">
+                <div class="item_content">
+                    <h1 class="item_name">{{item.title}}</h1>
+                    <p class="item_num">{{item.tasks.length}} tasks</p>
+                </div>   
+                <a href="" class="item_delete">
+                    <i class="material-icons"> clear </i>
+                </a>
+            </a>
+        </div>
+    </section>
+                   
+    <a routerLink="/add-list" class="btn btn_float item_add">
+        <i class="material-icons">add</i>
+    </a>
+</div>

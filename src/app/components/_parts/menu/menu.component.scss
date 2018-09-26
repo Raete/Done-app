@@ -1,0 +1,31 @@
+@import '../../../../scss/_variables';
+
+.menu {
+    border-bottom: 1px solid darken( $background, 10% );
+    &_wrapper {
+        height: 50px;
+        max-width: $width;
+        margin: 0 auto;
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo {
+    height: 100%;
+    width: auto;
+}
+
+
+@media screen and (min-width: 960px) {
+    .menu  {
+   
+        &_wrapper {
+            padding: 10px 50px;
+        }
+
+    }
+
+}

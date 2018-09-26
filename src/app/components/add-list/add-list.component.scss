@@ -1,0 +1,116 @@
+@import '../../../scss/_variables';
+
+
+.container {
+    height: 100vh;
+    background-image: url("../../../assets/img/background.png");
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.header {
+    padding: 20px;
+    &_wrapper {
+        color: $background;
+        background: $color_main;  
+    }
+}
+
+.project {
+    text-align: center;
+    &_name {
+        font-size: 130%;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    &_date {
+        opacity: .5;
+        margin-bottom: 10px;
+    }
+    &_tasks {
+        opacity: .5;
+    }
+}
+
+.form {
+    width: 90%;
+    background: $background;
+    padding: 40px;
+    border-radius: $radius;
+    box-shadow: 0 10px 20px 0 rgba($color_third, 0.1);
+    &_title {
+        text-align: center;
+        margin-bottom: 50px;
+        font-weight: 700;
+        color: $color_second;
+    }
+}
+
+.form_wrapper {
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+  
+label {
+    display: block;
+    letter-spacing: 1px;
+    font-size: 90%;
+    padding-top: 30px;
+    .label-text {
+        color: $color_second;
+        cursor: text;
+        font-size: 90%;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+        transform: translateY(-60px);
+        transition: all 0.3s;
+    }
+    input {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid darken( $background, 20% );  
+        color: $color_third;
+        font-size: 100%;
+        outline: 0;
+        padding: 5px 0;
+        transition: all 0.3s;
+        width: 100%;
+        &:focus {
+            max-width: 100%;
+            border-bottom: 2px solid $color_second;
+        }
+        &:focus + .label-text {
+            color: $color_second;
+            font-size: 90%;
+            font-weight: 700;
+            transform: translateY(-60px);
+        }
+        &:valid + .label-text {
+            font-size: 90%;
+            transform: translateY(-60px);
+            font-weight: 700;
+        }
+    }
+}
+
+
+
+
+@media screen and (min-width: 800px) {
+
+    .btn_form {
+        display: inline-block;
+        text-align: center
+    }
+    
+    .form_wrapper {
+        margin-top: 100px;
+    }
+
+}

@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+// GLOBAL STYLE
+// resets
+@import 'scss/_resets';
+// variables
+@import 'scss/_variables';
+
+
+@import 'scss/_buttons';
+
+
+body {
+    font-family: $main_font;
+    color: $color_main;
+}
+

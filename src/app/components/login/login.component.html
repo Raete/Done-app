@@ -1,0 +1,19 @@
+<div class="container">
+        <app-menu></app-menu>
+        <main class="form_wrapper">
+            <form class="form" (submit)="onSubmit()">
+                <h1 class="form_title">Login</h1>
+                <label for="email">
+                    <input type="email" name="email" required [(ngModel)]="email"/>
+                    <div class="label-text">Email</div>
+                </label>
+                <label for="password">
+                    <input type="password" name="password" required [(ngModel)]="password"/>
+                    <div class="label-text">Password</div>
+                </label>
+                <button class="btn btn_claim" type="submit" value="Login">Enter</button>
+            </form>
+            
+        </main>
+    
+    </div>

@@ -1,0 +1,87 @@
+.container {
+    position: relative;
+    background: $background;  
+    height: 100vh;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid darken( $background, 10% );
+    border-top: none;
+    padding: 20px;
+    &:first-child {
+        border-top: 1px solid darken( $background, 10% );
+    }
+    &_text {
+       margin-left: 20px;
+    }
+    &_name {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    &_date {
+        font-size: 90%;
+    }
+    &_delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color_main;
+        padding: 5px;
+        border-radius: 50px;
+        transition: $transition;
+        cursor: pointer;
+        i {
+            font-size: 20px;
+        }
+        &:hover {
+            color: $background;
+            background: $color_second;
+
+        }
+    }
+    &_content {
+        display: flex;
+        align-items: center;
+        i {
+            font-size: 30px;
+            transition: $transition;
+            cursor: pointer;
+            &:hover {
+                color: $color_second;
+
+            }
+        }
+
+    }
+}
+
+.task_done {
+    color: lighten($color_main, 30%);
+    .btn_check {
+        color: $color_second;
+    }
+    .task_delete {
+        color: lighten($color_main, 30%);
+        &:hover {
+            color: lighten($color_main, 30%);
+            background: transparent;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 800px) {
+    
+   
+
+    .tasks {
+        max-width: $width;
+        margin: 0 auto;
+    }
+
+
+}

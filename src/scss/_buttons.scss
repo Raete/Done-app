@@ -1,0 +1,43 @@
+.btn {
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $transition;
+    &_claim {
+        font-size: 90%;
+        background: $color_second;
+        color: $background;
+        &:hover {
+            box-shadow: 0 10px 20px 0 rgba($color_second, 0.3);
+        }
+    }
+    &_outline {
+        font-size: 90%;
+        background: $background;
+        border: 1px solid darken( $background, 10% );
+        &:hover {
+            box-shadow: 0 10px 20px 0 rgba($color_third, 0.1);
+        }
+    }
+    &_menu {
+        border: 0;
+        background: none;
+        transition: $transition;
+        &:hover {
+            font-weight: 700;
+        }   
+    }
+    &_float {
+
+        font-size: 90%;
+        background: $color_second;
+        color: $background;
+        padding: 15px;
+        &:hover {
+            box-shadow: 0 10px 20px 0 rgba($color_second, 0.3);
+        }
+    }
+}

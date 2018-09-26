@@ -1,0 +1,170 @@
+@import '../../../scss/_variables';
+
+.container {
+    position: relative;
+    background: $background;  
+    height: 100vh;
+}
+.header {
+    padding: 20px;
+   
+    
+    
+    &_wrapper {
+        padding-bottom: 20px;
+        color: $background;
+        background: $color_main;  
+    }
+
+}
+
+.title {
+    font-size: 250%;
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+.nav {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 250%;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.stats_wrapper {
+
+    background: darken($color_main, 5% );
+    border-top: 1px solid darken( $color_main, 10% );
+    border-bottom: 1px solid darken( $color_main, 10% );
+    
+
+
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    color: $background;
+    &_box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        padding: 20px;
+        &:first-child {
+            border-right: 1px solid darken( $color_main, 10% );  
+        }
+    }
+    &_number {
+        font-size: 110%;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    &_title {
+        font-size: 90%;
+        text-align: center
+    }
+}
+
+
+.lists {
+
+    &_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid darken( $background, 10% );
+        transition: $transition;
+        &:hover {
+            background: $background;
+            box-shadow: 0 0 35px 5px rgba($color_third, 0.1);
+            transform: scale(1.01)   
+        }
+    }
+}
+
+.item {
+    
+    &_name {
+        color: $color_main;
+        font-weight: 700;
+        line-height: 150%;
+        
+    }
+    &_num {
+        font-size: 90%;
+        margin-top: 10px;
+        color: darken( $background, 30% );
+    }
+    &_date {
+        font-size: 90%;
+        color: darken( $background, 30% );
+     
+    }
+    &_add {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+    &_delete {
+        color: $color_second;
+        border-radius: 50px;
+        padding: 5px;
+        transition: $transition;
+        &:hover {
+            color: darken( $background, 10% );
+            background: $color_second;
+        }
+        i {
+            font-size: 20px;
+        }
+     
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    .header, .lists, .stats {
+        max-width: $width;
+        margin: 0 auto;
+    }
+
+ 
+    .lists {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-auto-rows: auto;
+        grid-gap: 5px;
+        padding: 20px;
+
+        &_item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border: 1px solid darken( $background, 10% );
+            border-radius: $radius; 
+            padding: 10px 10px 20px 20px;
+        }
+  
+    }
+    .item {
+        &_content {
+            order: 2;
+            align-self: flex-start;
+
+            
+        }
+        &_delete {
+            align-self: flex-end;
+            margin-bottom: 15px;
+        }
+    }
+
+
+
+
+}
