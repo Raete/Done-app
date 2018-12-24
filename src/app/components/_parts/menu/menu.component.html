@@ -1,8 +1,10 @@
 <nav class="menu">
     <div class="menu_wrapper">
-        <img routerLink="/" src="../../../assets/img/done.svg" alt="" class="logo">
+        <!-- logo -->
+        <img routerLink="/" src="/../../../assets/img/done.svg" alt="" class="logo">
+        <!-- menu -->
         <div class="menu_controls">
-            <a routerLink="/login" class="btn_menu">Log in</a>
+            <a *ngIf="!login" routerLink="/login" class="btn_menu">Log in</a>
         </div>
     </div>
 </nav>

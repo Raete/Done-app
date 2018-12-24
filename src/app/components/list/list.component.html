@@ -1,0 +1,111 @@
+<!-- list header component -->
+<app-list-header></app-list-header>
+<!-- tasks filter menu -->
+<nav class="list_menu">
+    <ul class="menu_wrapper">
+        <li *ngFor="let item of menu" 
+            class="menu_item" 
+            [ngClass]="{activeTab: activeTab == item.id}" 
+            (click)="getTabId(item.id)"
+            > {{item.title}} ({{item.sum}})
+        </li>
+    </ul>
+</nav>
+<!-- add task form -->
+<form class="form">
+    <!-- task title input -->
+    <mat-form-field appearance="outline" >
+        <mat-label>Task title</mat-label>
+        <input 
+            matInput 
+            class="form_task_title" 
+            type="text"
+            name="taskTitle"
+            [(ngModel)]="task.title"
+            autofocus
+        >    
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel ="always">
+        <mat-label>Deadline</mat-label>
+        <input 
+            matInput 
+            [matDatepicker]="picker" 
+            class="form_input_date" 
+            name="taskDeadline"
+            [(ngModel)]="task.deadline"
+            (dateChange)="getDate($event)"
+            disabled
+        >
+        <!-- datepicker icon -->
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <!-- datepicker  -->
+        <mat-datepicker #picker disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <!-- add task submit button -->
+    <button mat-flat-button color="accent" class="form_task_add" (click)="addTask()">add new task</button>
+</form>
+    
+<section class="tasks" [ngSwitch]="activeTab">
+    <!-- feedback -->
+    <p *ngIf="feedback" class="feedback">{{feedback}}</p>
+    <!-- all tasks list -->
+    <ul class="tasks_list" *ngSwitchCase="1">
+        <li class="task" *ngFor="let task of tasks" [class.task_done]="!task.status">
+            <div class="task_content">
+                <!-- check icon -->
+                <a (click)="changeStatus(task.id)">
+                    <i class="material-icons btn_check">{{task.statusIcon}}</i>
+                </a>
+                <!-- title task and deadline -->
+                <div class="task_text">
+                    <h1 class="task_name">{{task.title}}</h1>
+                    <p *ngIf="task.deadline" class="task_date">deadline: {{task.deadline}}</p>
+                </div>
+            </div>
+            <!-- delete task button -->
+            <button class="task_delete" (click)="deleteThisTask(task.id)">
+                <i class="material-icons"> clear </i>
+            </button>
+        </li>
+    </ul>
+    <!-- to-do tasks list -->
+    <ul class="tasks_list" *ngSwitchCase="2">
+        <li class="task" *ngFor="let task of todoTasks" [class.task_done]="!task.status">
+            <div class="task_content">
+                <!-- check icon -->
+                <a (click)="changeStatus(task.id)">
+                    <i class="material-icons btn_check">{{task.statusIcon}}</i>
+                </a>
+                <!-- title task and deadline -->
+                <div class="task_text">
+                    <h1 class="task_name">{{task.title}}</h1>
+                    <p *ngIf="task.deadline" class="task_date">deadline: {{task.deadline}}</p>
+                </div>
+            </div>
+            <!-- delete task button -->
+            <button class="task_delete" (click)="deleteThisTask(task.id)">
+                <i class="material-icons"> clear </i>
+            </button>
+        </li> 
+    </ul>
+    <!-- done tasks list -->
+    <ul class="tasks_list" *ngSwitchCase="3">
+        <li class="task" *ngFor="let task of doneTasks" [class.task_done]="!task.status">
+            <div class="task_content">
+                <!-- check icon -->
+                <a (click)="changeStatus(task.id)">
+                    <i class="material-icons btn_check">{{task.statusIcon}}</i>
+                </a>
+                <!-- title task and deadline -->
+                <div class="task_text">
+                    <h1 class="task_name">{{task.title}}</h1>
+                    <p *ngIf="task.deadline" class="task_date">deadline: {{task.deadline}}</p>
+                </div>
+            </div>
+            <!-- delete task button -->
+            <button class="task_delete" (click)="deleteThisTask(task.id)">
+                <i class="material-icons"> clear </i>
+            </button>
+        </li>
+    </ul>
+</section>

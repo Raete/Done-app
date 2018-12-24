@@ -2,19 +2,30 @@
     <!-- menu component -->
     <app-menu></app-menu>
     <main class="form_wrapper">
-        <!-- login form -->
-        <form class="form" (submit)="onSubmit()">
-            <h1 class="form_title">Great to see you again!</h1>
+        <!-- sign up form -->
+        <form class="form" (submit)="signUp()">
+            <h1 class="form_title">Start using Done</h1>
+            <!-- username input -->
+            <mat-form-field appearance="legacy">
+                <input 
+                    matInput 
+                    placeholder="Username"
+                    required
+                    type="text" 
+                    name="username"
+                    [(ngModel)]="user.username"
+                    autofocus
+                >
+            </mat-form-field>
             <!-- email input -->
             <mat-form-field appearance="legacy">
                 <input 
                     matInput 
-                    placeholder="Email"
                     required
+                    placeholder="Email"
                     type="email" 
                     name="email"
                     [(ngModel)]="user.email"
-                    md-autofocus
                 >
             </mat-form-field>
             <!-- password input -->
@@ -28,10 +39,10 @@
                     [(ngModel)]="user.password"
                 >
             </mat-form-field>
-            <!-- login button -->
-            <button class="btn btn_claim btn_form" type="submit" value="Login">Login</button>
+            <!-- sign up submit button -->
+            <button class="btn btn_claim btn_form" type="submit" value="Register">Create account</button>
         </form>
         <!-- feedback -->
-        <p *ngIf="feedback" class="feedback">{{feedback}}</p>
+        <p *ngIf="feedback" class="feedback">{{feedback}}</p> 
     </main>
 </div>

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// components
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { SingupComponent } from './components/singup/singup.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
-import { TasksAllComponent } from './components/tasks-all/tasks-all.component';
-import { TasksDoneComponent } from './components/tasks-done/tasks-done.component';
-import { TasksTodoComponent } from './components/tasks-todo/tasks-todo.component';
+import { ListComponent } from './components/list/list.component';
 import { AddListComponent } from './components/add-list/add-list.component';
-
+import { EditListComponent } from './components/edit-list/edit-list.component';
+// path guard
 import { AuthGuard } from './guards/auth.guard';
-
 
 const routes: Routes = [
     {
@@ -23,31 +22,26 @@ const routes: Routes = [
         canActivate:[AuthGuard]
     },
     {
+        path: 'list/:id',
+        component: ListComponent,
+        canActivate:[AuthGuard]
+    },
+    {
         path: 'singup',
-        component: SingupComponent
+        component: SignupComponent
     },
     {
         path: 'login',
         component: LoginComponent
     },
     {
-        path: 'tasks-all',
-        component: TasksAllComponent,
-        canActivate:[AuthGuard]
-    },
-    {
-        path: 'tasks-done',
-        component: TasksDoneComponent,
-        canActivate:[AuthGuard]
-    },
-    {
-        path: 'tasks-todo',
-        component: TasksTodoComponent,
-        canActivate:[AuthGuard]
-    },
-    {
         path: 'add-list',
         component: AddListComponent,
+        canActivate:[AuthGuard]
+    },
+    {
+        path: 'edit-list/:id',
+        component: EditListComponent,
         canActivate:[AuthGuard]
     },
 
@@ -59,4 +53,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [AuthGuard]
 })
+
 export class AppRoutingModule { }

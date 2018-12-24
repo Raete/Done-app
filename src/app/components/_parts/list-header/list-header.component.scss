@@ -1,7 +1,10 @@
 @import '../../../../scss/_variables';
 
+
 .header {
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
     &_wrapper {
         color: $background;
         background: $color_main;  
@@ -10,6 +13,7 @@
 
 .project {
     text-align: center;
+    padding-bottom: 20px;
     &_name {
         font-size: 130%;
         font-weight: 700;
@@ -39,110 +43,12 @@
     }
 }
 
-.list_menu {
-    border-bottom: 1px solid darken( $background, 10% );
-}
-.menu {
-    &_wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-       
-    }
-    &_item {
-        display: block;
-        padding: 20px;
-        font-weight: 700;
-        text-align: center;
-        transition: $transition;
-
-        &:hover, &--active {
-            font-weight: 700;
-            background: darken( $background, 10% );
-        }
-
-    }
-}
-
-
-.form {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-    "title date"
-    "btn btn";
-
-    width: 100%;
-
-    input {
-        width: 100%;
-        border: none;
-        color: $color_main;
-        background: transparent;
-        padding: 35px 20px 15px 20px;
-        font-size: 100%;
-        font-weight: 700;
-    }
-}
-label {
-    position: relative;
-    border-left: 1px solid darken( $background, 10% );
-}
-.label-text {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 80%;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: $color_second;
-    
-}
-
-
-
-
-.task {
-    &_title {
-        grid-area: title;
-
-    }
-    &_date {
-        grid-area: date;
-    }
-    &_add {
-        grid-area: btn;
-        font-weight: 700;
-        color: $background;
-        background: $color_second;
-        text-transform: uppercase;
-        transition: $transition;
-        cursor: pointer;
-        &:hover {
-            background: darken( $color_second, 5% );
-        }
-    }
-}
-
-
-
+// desktop
 @media screen and (min-width: 800px) {
 
-    .header, .summary, .menu_wrapper, .form {
+    .header, .summary, .menu_wrapper {
         max-width: $width;
         margin: 0 auto;
     }
-
-    .form {
-        display: grid;
-        grid-template-columns: 3fr 1fr 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: 
-        "title date btn"
-    }
-
-
-   
 
 }

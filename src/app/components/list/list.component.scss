@@ -1,0 +1,133 @@
+@import '../../../scss/_variables';
+@import '../../../scss/_tasks';
+
+.header {
+    padding: 20px;
+    &_wrapper {
+        color: $background;
+        background: $color_main;  
+    }
+}
+
+.project {
+    text-align: center;
+    &_name {
+        font-size: 130%;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    &_date {
+        opacity: .5;
+        margin-bottom: 10px;
+    }
+    &_tasks {
+        opacity: .5;
+    }
+}
+
+.summary {
+    padding: 20px;
+    &_wrapper {
+        color: $background;
+        background: darken($color_main, 5% );
+    }
+    &_title {
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    &_content {
+        line-height: 130%
+    }
+}
+
+.list_menu {
+    border-bottom: 1px solid darken( $background, 10% );
+    margin-bottom: 20px;
+}
+
+.menu {
+    &_wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    &_item {
+        display: block;
+        padding: 20px;
+        font-weight: 700;
+        text-align: center;
+        transition: $transition;
+        cursor: pointer;
+        &:hover, &--active {
+            font-weight: 700;
+            background: darken( $background, 10% );
+        }
+    }
+}
+
+.activeTab {
+    font-weight: 700;
+            background: darken( $background, 10% );
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "title"
+    "date"
+    "btn";
+    width: 100%;
+    padding: 0 20px
+}
+
+.form_task {
+    &_title {
+        width: 60%;
+        grid-area: title;
+    }
+    &_date {
+        grid-area: date;
+        margin-top: 10px;
+    }
+    &_add {
+        grid-area: btn;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: $transition;
+        cursor: pointer;
+        margin: .25em 0;
+        border-radius: 5px;
+    }
+}
+
+.feedback {
+    font-size: 100%;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    color: $color_main;
+    background: darken( $background, 10% );
+    padding: 20px 10px;
+    border-radius: 8px
+}
+
+// desktop
+@media screen and (min-width: 800px) {
+
+    .header, .summary, .menu_wrapper, .form, .feedback {
+        max-width: $width;
+        margin: 0 auto;
+    }
+
+    .form {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 5px;
+        grid-template-areas: 
+        "title date btn";
+        padding: 0 
+    }
+
+}

@@ -3,26 +3,33 @@
     background: $background;  
     height: 100vh;
 }
+.tasks {
+    padding: 0 20px;
+}
+
+.input_date {
+    grid-area: date;
+    margin: 0;
+}
 
 .task {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid darken( $background, 10% );
-    border-top: none;
+    border-radius: 5px;
     padding: 20px;
-    &:first-child {
-        border-top: 1px solid darken( $background, 10% );
-    }
+    margin-bottom: 5px; 
     &_text {
        margin-left: 20px;
     }
     &_name {
         font-weight: 700;
-        margin-bottom: 8px;
+        
     }
     &_date {
         font-size: 90%;
+        margin-top: 8px;
     }
     &_delete {
         display: flex;
@@ -67,21 +74,22 @@
         color: lighten($color_main, 30%);
         &:hover {
             color: lighten($color_main, 30%);
-            background: transparent;
+            background: darken( $background, 10% );
         }
+    }
+    .task_name {
+        text-decoration: line-through;
+        font-weight: normal;
     }
 }
 
-
-
+// desktop
 @media screen and (min-width: 800px) {
     
-   
-
     .tasks {
         max-width: $width;
         margin: 0 auto;
+        padding: 0 
     }
-
 
 }

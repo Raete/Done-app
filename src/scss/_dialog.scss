@@ -1,0 +1,80 @@
+@import '../../../scss/_variables';
+
+.container {
+    height: 100vh;
+    background-image: url("../../../assets/img/background.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    padding: 35px 20px 5px 20px;
+    &_wrapper {
+        color: $background;
+        background: $color_main;  
+        margin: 0
+    }
+}
+
+.project {
+    text-align: center;
+    &_name {
+        font-size: 100%;
+        font-weight: 700;
+    }
+    &_date {
+        font-size: 80%;
+        opacity: .5;
+        text-align: right
+    }
+    &_tasks {
+        font-size: 80%;
+        opacity: .5;
+    }
+}
+
+.form {
+    width: 100%;
+    background: $background;
+    padding: 40px;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    &_title {
+        text-align: center;
+        margin-bottom: 50px;
+        font-weight: 700;
+        color: $color_second;
+    }
+}
+
+
+.feedback {
+    font-size: 100%;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    color: $color_main;
+    background: darken( $background, 10% );
+    padding: 20px 10px;
+   
+}
+
+.btn_reset {
+    margin: 0 0 20px 0;
+    padding: 0;
+    text-align: left;
+    color: $color_second;
+    font-weight: 700;
+    cursor: pointer;
+   
+}
+
+// desktop
+@media screen and (min-width: 800px) {
+
+    .btn_form {
+        margin: 0 auto;
+    }
+    
+}

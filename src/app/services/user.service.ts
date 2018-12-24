@@ -1,47 +1,49 @@
 import { Injectable } from '@angular/core';
+// firebase
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 import slugify from 'slugify'
-
-
-
-import { User } from '../models/User';
-
+// interfase
+import { User } from '../interfaces/User';
 
 @Injectable()
 export class UserService {
-  usersCollection: AngularFirestoreCollection<User>;
-  userDoc: AngularFirestoreDocument<User>;
-  users: Observable<User[]>;
-  user: Observable<User>;
-  slug: string;
 
-  constructor(private afs: AngularFirestore) { 
-    this.usersCollection = this.afs.collection('users');
-  }
+    constructor(
+        private afs: AngularFirestore
+    ) { 
+        this.usersCollection = this.afs.collection('users');
+    }
 
-  newUser(user: User) {
-    this.usersCollection.add(user);
-  }
+    // data
+    usersCollection: AngularFirestoreCollection<User>;
+    userDoc: AngularFirestoreDocument<User>;
+    users: Observable<User[]>;
+    user: Observable<User>;
 
-  getSlug(username: string) {
-    this.slug = slugify(username, {
-        replacement: '-',
-        remove:/[$*_+~.()'"!\-:@]/g,
-        lower: true
-    })
-    return this.slug
-  }
+    slug: string;
 
-  userC(){
-      return this.usersCollection
-  }
+    //** used in: add-list component, signup component
+    // create slug of username 
+    createSlug(username: string) {
+        this.slug = slugify(username, {
+            replacement: '-',
+            remove:/[$*_+~.()'"!\-:@]/g,
+            lower: true
+        })
+        return this.slug
+    }
 
+    //** used in: signup component
+    // users database with user's slug
+    dbWithUserSlug(slug: string) {
+        return this.usersCollection.doc(slug)
+    }
 
-
-
-
-  
-  
+    //** used in: add-list component, login component, profile component
+    // profile of single user
+    userProfile(uid: string) {
+        return this.afs.collection('users', ref => ref.where('user_id', '==', uid))
+    }
 }

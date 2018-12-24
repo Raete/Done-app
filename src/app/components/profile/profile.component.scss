@@ -71,6 +71,9 @@
 
 
 .lists {
+    &_wrapper {
+        margin-bottom: 100px;
+    }
 
     &_item {
         display: flex;
@@ -88,6 +91,10 @@
 }
 
 .item {
+    
+    &_content {
+        width: 100%;
+    }
     
     &_name {
         color: $color_main;
@@ -114,6 +121,7 @@
         color: $color_second;
         border-radius: 50px;
         padding: 5px;
+        cursor: pointer;
         transition: $transition;
         &:hover {
             color: darken( $background, 10% );
@@ -125,6 +133,20 @@
      
     }
 }
+
+.feedback {
+    font-size: 100%;
+    font-weight: 700;
+    //margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    color: $color_main;
+    background: darken( $background, 10% );
+    padding: 20px 10px;
+   
+}
+
+
 
 
 @media screen and (min-width: 800px) {
@@ -147,7 +169,7 @@
             justify-content: flex-start;
             border: 1px solid darken( $background, 10% );
             border-radius: $radius; 
-            padding: 10px 10px 20px 20px;
+            padding: 0;
         }
   
     }
@@ -155,16 +177,12 @@
         &_content {
             order: 2;
             align-self: flex-start;
-
-            
+            padding: 15px;
         }
         &_delete {
             align-self: flex-end;
-            margin-bottom: 15px;
+            border-radius: $radius;
         }
     }
-
-
-
 
 }

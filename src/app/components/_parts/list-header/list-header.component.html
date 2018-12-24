@@ -1,49 +1,27 @@
-
-    <header class="header_wrapper">
-        <div class="header">
-            <a routerLink="/profile" class="btn_back">
-                <i class="material-icons">arrow_back</i>
-            </a>
-            <div class="project">
-                    <h1 class="project_name">Learn Angular</h1>
-                <p class="project_date">deadline: 30.10.2018</p>
-                <p class="project_tasks">20 tasks</p>
-            </div>
-        </div>
-    </header>
-    <section class="summary_wrapper">
-        <div class="summary">
-            <h1 class="summary_title">
-                About project
-            </h1>
-            <p class="summary_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet neque quibusdam quos ducimus rem. Veritatis neque eos quos nemo expedita!
-            </p>
-        </div>
-    </section>
-    <nav class="list_menu">
-        <ul class="menu_wrapper">
-            <li>
-                <a class="menu_item" [class.menu_item--active]="currentUrl == '/tasks-all'"  routerLink="/tasks-all" >All </a>
-            </li>
-            <li>
-                <a class="menu_item" [class.menu_item--active]="currentUrl == '/tasks-todo'" routerLink="/tasks-todo" >To do</a>
-            </li>
-            <li>
-                <a class="menu_item" [class.menu_item--active]="currentUrl == '/tasks-done'"  routerLink="/tasks-done" >Done </a>
-            </li>
-        </ul>
-    </nav>
-    <form class="form">
-        <label>
-            <input class="task_title" type="text">
-            <div class="label-text">Title task</div>
-        </label>
-        <label>
-            <input class="task_date" type="date" >
-            <div class="label-text">deadline</div>
-        </label>
-        <button class="task_add">add new task</button>
-    </form>
-
-
+<!-- list header -->
+<header class="header_wrapper">
+    <!-- top control menu -->
+    <div class="header">
+        <!-- back to profile button  -->
+        <a mat-button mat-icon-button routerLink="/profile" class="btn_back">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <!-- edit list button -->
+        <button mat-button mat-icon-button (click)="openEditListDialog()" class="btn_back">
+            <i class="material-icons">edit</i>
+        </button>
+    </div>
+    <!-- project name, tasks and deadline -->
+    <div class="project">
+        <h1 class="project_name">{{list.title}}</h1>
+        <p *ngIf="list.date" class="project_date">deadline: {{list.date}}</p>
+        <p class="project_tasks">{{taskSum}} tasks</p>
+    </div>
+</header>
+<!-- project info -->
+<section class="summary_wrapper" *ngIf="list.info">
+    <div class="summary">
+        <h1 class="summary_title"> About list </h1>
+        <p class="summary_content"> {{list.info}} </p>
+    </div>
+</section>

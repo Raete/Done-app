@@ -1,34 +1,33 @@
 import { Injectable } from '@angular/core';
+// firebase
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs';
+
 import { map } from 'rxjs/operators';
 
 @Injectable()
+
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+    constructor(
+        private afAuth: AngularFireAuth
+    ) {}
 
-  login(email: string, password: string) {
-    return new Promise((resolve, reject) => {
-      this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        .then(userData => resolve(userData),
-      err => reject(err))
-    });
-  }
+    //** used in: profile component, login component
+    getAuth() {
+        return this.afAuth.authState.pipe(map(auth => auth));
+    }
 
-  register(email: string, password: string) {
-    return new Promise((resolve, reject) => {
-      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        .then(userData => resolve(userData),
-      err => reject(err))
-    });
-  }
+    //** used in: login component, 
+    login(email:any, password:any) {
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    }
 
-  getAuth() {
-    return this.afAuth.authState.pipe(map(auth => auth));
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
+    //** used in: sign component, 
+    signUp(email:any, password:any) {
+        return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    }
+    //** used in: profile component, menu component
+    logout() {
+        this.afAuth.auth.signOut();
+    }
 }

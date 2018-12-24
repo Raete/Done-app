@@ -1,0 +1,64 @@
+{
+  "indexes": [
+    {
+      "collectionId": "tasks",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "status",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "createDate",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "tasks",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "listID",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "createDate",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "tasks",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "listID",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "mode": "DESCENDING"
+        },
+        {
+          "fieldPath": "createDate",
+          "mode": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "tasks",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "listID",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "createDate",
+          "mode": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}

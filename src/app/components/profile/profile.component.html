@@ -2,43 +2,50 @@
     <header class="header_wrapper">
         <div class="header">
             <nav class="nav">
-                <a href="#" (click)="onLogoutClick()" class="btn_menu">Log out</a>
+                <a href="#" (click)="logOut()" class="btn_menu">Log out</a>
+                
             </nav>
             
             <h1 class="title">Hello</h1>
-            <h1 class="name">Kelly</h1>
-            <p class="date">Sunday, 12nd March</p>
+            <h1 class="name">{{username}}</h1>
+            <p class="date">{{today}}</p>
         </div>
     </header>
     <section class="stats_wrapper">
         <div class="stats">
             <div class="stats_box">
-                <h1 class="stats_number">52</h1>
+                <h1 class="stats_number">{{lists.length}}</h1>
                 <p class="stats_title">Created Lists</p>
 
             </div>
             <div class="stats_box">
-                <h1 class="stats_number">588</h1>
+                <h1 class="stats_number">{{taskSum}}</h1>
                 <p class="stats_title">Created Tasks</p>
             </div>
         </div>
     </section>
+
     <section class="lists_wrapper">
         <div class="lists">
-            
-            <a routerLink="/tasks-all" class="lists_item" *ngFor="let item of lists">
-                <div class="item_content">
-                    <h1 class="item_name">{{item.title}}</h1>
-                    <p class="item_num">{{item.tasks.length}} tasks</p>
-                </div>   
-                <a href="" class="item_delete">
-                    <i class="material-icons"> clear </i>
-                </a>
-            </a>
-        </div>
-    </section>
+            <div *ngFor="let list of lists">
+                <div  class="lists_item" >
+                    <a routerLink="/list/{{ list.id }}" class="item_content">
+                            
+                        <h1 class="item_name">{{list.title}}</h1>
+                        <p class="item_num"> {{list.todo_task}}/{{list.all_task}} tasks left</p>
                    
-    <a routerLink="/add-list" class="btn btn_float item_add">
-        <i class="material-icons">add</i>
-    </a>
+                
+                      
+                    </a>   
+                    <div href="" class="item_delete" (click)="deleteList(list.id)">
+                        <i class="material-icons"> clear </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <button mat-button (click)="addNewList()" mat-fab color="accent" class="btn btn_float item_add">
+            <i class="material-icons">add</i>
+    </button>
 </div>
